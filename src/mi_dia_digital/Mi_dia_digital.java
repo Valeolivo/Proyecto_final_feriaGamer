@@ -58,5 +58,12 @@ public class Mi_dia_digital {
                 diaDDmes = 31;
             }
         }
+        boolean diaV = mesV && dia >=1 && dia<= diaDDmes;
+        boolean horaVingreso = horaI >= 1 && horaI<= 12;
+        boolean minutoV = minutos >= 0 && minutos <= 59;
+        boolean franjaHV = franjaH.equals("AM") || franjaH.equals("PM");
+        boolean horasRV = horasR > 0 && horasR <= 24;
+        
+        
     }
 }
