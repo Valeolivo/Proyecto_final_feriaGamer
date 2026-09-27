@@ -66,7 +66,7 @@ public class Mi_dia_digital {
         
         boolean validando = edadV && diaV && mesV && horaVingreso && minutoV && franjaHV && horasRV;
         if (!validando){
-            System.out.println("Error. uno o más datos ingresados no son validos.\n¡Intentalo de nuevo!:D");
+            System.out.println("Error. uno o mas datos ingresados no son validos.\n¡Intentalo de nuevo!:D");
         }else{
             int horaMILITAR;
             if (franjaH.equals("AM")){
@@ -89,6 +89,11 @@ public class Mi_dia_digital {
             int hora_salida = segundos_salida/3600;
             int minutos_salida = (segundos_salida % 3600)/60;
             int segundos_restantes  = segundos_salida % 60; 
+            
+            String horaMILITAR_ingreso = String.format("%02d:%02d:00", horaMILITAR, minutos);
+            String horaMILITAR_salida = String.format("%02d:%02d:%02d", hora_salida, minutos_salida, segundos_restantes);
+            
+            
         }
     }
 }
