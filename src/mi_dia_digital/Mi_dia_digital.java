@@ -64,6 +64,24 @@ public class Mi_dia_digital {
         boolean franjaHV = franjaH.equals("AM") || franjaH.equals("PM");
         boolean horasRV = horasR > 0 && horasR <= 24;
         
-        
+        boolean validando = edadV && diaV && mesV && horaVingreso && minutoV && franjaHV && horasRV;
+        if (!validando){
+            System.out.print("Error. uno o más datos ingresados no son validos.\n¡Intentalo de nuevo!:D");
+        }else{
+            int horaMILITAR;
+            if (franjaH.equals("AM")){
+                if (horaI == 12){
+                    horaMILITAR = 0;
+                }else{
+                    horaMILITAR = horaI;
+                }
+            }else{
+                if (horaI == 12){
+                    horaMILITAR = 12;
+                }else{
+                    horaMILITAR = horaI + 12;
+                }
+            }
+        }
     }
 }
