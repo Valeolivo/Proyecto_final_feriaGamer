@@ -93,7 +93,23 @@ public class Mi_dia_digital {
             String horaMILITAR_ingreso = String.format("%02d:%02d:00", horaMILITAR, minutos);
             String horaMILITAR_salida = String.format("%02d:%02d:%02d", hora_salida, minutos_salida, segundos_restantes);
             
+            System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+            System.out.println("|       PUNTAJE DE RIESGO    |");
+            System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
             
+            int puntaje = 0;
+            if (horasR > 3 && horasR < 8){
+                puntaje += 4;
+            }else{
+                if(horasR >= 8){
+                    puntaje += 7;
+                }
+            }
+            boolean ingreso_fueraH = horaMILITAR < 8 || horaMILITAR >=20;
+            boolean salida_fueraH = hora_salida < 8 || hora_salida >=20;
+            if (ingreso_fueraH || salida_fueraH){
+                puntaje += 4;
+            }
         }
     }
 }
