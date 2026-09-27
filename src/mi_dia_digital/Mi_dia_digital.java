@@ -58,5 +58,58 @@ public class Mi_dia_digital {
                 diaDDmes = 31;
             }
         }
+        boolean diaV = mesV && dia >=1 && dia<= diaDDmes;
+        boolean horaVingreso = horaI >= 1 && horaI<= 12;
+        boolean minutoV = minutos >= 0 && minutos <= 59;
+        boolean franjaHV = franjaH.equals("AM") || franjaH.equals("PM");
+        boolean horasRV = horasR > 0 && horasR <= 24;
+        
+        boolean validando = edadV && diaV && mesV && horaVingreso && minutoV && franjaHV && horasRV;
+        if (!validando){
+            System.out.println("Error. uno o mas datos ingresados no son validos.\n¡Intentalo de nuevo!:D");
+        }else{
+            int horaMILITAR;
+            if (franjaH.equals("AM")){
+                if (horaI == 12){
+                    horaMILITAR = 0;
+                }else{
+                    horaMILITAR = horaI;
+                }
+            }else{
+                if (horaI == 12){
+                    horaMILITAR = 12;
+                }else{
+                    horaMILITAR = horaI + 12;
+                }
+            }
+            int segundosI = horaMILITAR * 3600 + minutos*60;
+            int segundos_Redes = (int) Math.round(horasR * 3600);
+            int segundos_salida = (segundosI + segundos_Redes + 1) % 86400;
+            
+            int hora_salida = segundos_salida/3600;
+            int minutos_salida = (segundos_salida % 3600)/60;
+            int segundos_restantes  = segundos_salida % 60; 
+            
+            String horaMILITAR_ingreso = String.format("%02d:%02d:00", horaMILITAR, minutos);
+            String horaMILITAR_salida = String.format("%02d:%02d:%02d", hora_salida, minutos_salida, segundos_restantes);
+            
+            System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+            System.out.println("|       PUNTAJE DE RIESGO    |");
+            System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+            
+            int puntaje = 0;
+            if (horasR > 3 && horasR < 8){
+                puntaje += 4;
+            }else{
+                if(horasR >= 8){
+                    puntaje += 7;
+                }
+            }
+            boolean ingreso_fueraH = horaMILITAR < 8 || horaMILITAR >=20;
+            boolean salida_fueraH = hora_salida < 8 || hora_salida >=20;
+            if (ingreso_fueraH || salida_fueraH){
+                puntaje += 4;
+            }
+        }
     }
 }
