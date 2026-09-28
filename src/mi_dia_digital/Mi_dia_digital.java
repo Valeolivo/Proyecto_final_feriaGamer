@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package mi_dia_digital;
-
 import java.util.Scanner;
 
 /**
@@ -20,9 +19,9 @@ public class Mi_dia_digital {
         String nombre, franjaH;
         int edad, anio, mes, dia, horaI, minutos;
         double horasR;
-        System.out.println("=========================================");
-        System.out.println("           MI DIA DIGITAL :D");
-        System.out.println("=========================================\n");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+        System.out.println("|           MI DIA DIGITAL :D               |");            
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.\n");
         System.out.println("Ingrese su nombre: ");
         nombre = sc.nextLine();
         System.out.println("Ingrese su edad: ");
