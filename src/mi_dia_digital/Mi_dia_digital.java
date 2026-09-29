@@ -26,11 +26,11 @@ public class Mi_dia_digital {
         nombre = sc.nextLine();
         System.out.println("Ingrese su edad: ");
         edad = sc.nextInt();
-        System.out.println("Anio: ");
+        System.out.println("Año de ingreso: ");
         anio = sc.nextInt();
-        System.out.println("Mes(1-12): ");
+        System.out.println("Mes de ingreso(1-12): ");
         mes = sc.nextInt();
-        System.out.println("Dia: ");
+        System.out.println("Dia de ingreso: ");
         dia = sc.nextInt();
         System.out.println("Hora de ingreso(1-12): ");
         horaI = sc.nextInt();
@@ -38,7 +38,7 @@ public class Mi_dia_digital {
         minutos = sc.nextInt();
         System.out.println("Ingrese su franja horaria de ingreso (AM/PM) ");
         franjaH = sc.next().toUpperCase();
-        System.out.println("Horas de uso en redes sociales: ");
+        System.out.println("Cantidad de horas que utilizará las redes sociale: ");
         horasR = sc.nextDouble();
         boolean edadV = edad > 0 && edad < 115;
         boolean mesV = mes > 0 && mes <= 12;
