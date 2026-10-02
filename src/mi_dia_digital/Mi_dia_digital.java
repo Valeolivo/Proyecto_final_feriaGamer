@@ -18,8 +18,9 @@ public class Mi_dia_digital {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String nombre, franjaH;
-        int edad, año, mes, dia, horaI, minutos, diaDDmes, horaMILITAR;
+        int edad, año, mes, dia, horaI, minutos, diaDDmes, horaMILITAR = 0;
         double horasR;
+        boolean valido = true;
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
         System.out.println("|           MI DÍA DIGITAL :D               |");
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.\n");
@@ -86,9 +87,11 @@ public class Mi_dia_digital {
                                         if (franjaH.equals("m")) {
                                             if (horaI != 12) {
                                                 System.out.println("Error. La hora ingresada no corresponde al mediodía.");
+                                                valido = false;
                                             } else {
                                                 if (minutos != 0) {
                                                     System.out.println("El medio dia corresponde a las 12:00M\nLos minutos deben ser 0.");
+                                                    valido = false;
                                                 } else {
                                                     horaMILITAR = horaI;
                                                 }
@@ -102,8 +105,25 @@ public class Mi_dia_digital {
                                                 }
                                             } else {
                                                 System.out.println("Ingrese una franja de horario válida(AM/M/PM)");
+                                                valido = false;
                                             }
                                         }
+                                    }
+                                    if (valido) {
+                                        int segundosI = horaMILITAR * 3600 + minutos * 60;
+                                        int segundos_Redes = (int) Math.round(horasR * 3600);
+                                        int segundos_salida = (segundosI + segundos_Redes + 1) % 86400;
+
+                                        int hora_salida = segundos_salida / 3600;
+                                        int minutos_salida = (segundos_salida % 3600) / 60;
+                                        int segundos_restantes = segundos_salida % 60;
+                                        
+                                        String horaMILITAR_ingreso = String.format("%02d:%02d:00", horaMILITAR, minutos);
+                                        String horaMILITAR_salida = String.format("%02d:%02d:%02d", hora_salida, minutos_salida, segundos_restantes);
+
+                                        System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
+                                        System.out.println("|       PUNTAJE DE RIESGO    |");
+                                        System.out.println(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.");
                                     }
                                 }
                             }
